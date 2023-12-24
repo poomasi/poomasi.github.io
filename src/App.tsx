@@ -40,7 +40,7 @@ function App() {
             <br />
             DevOps : 기본적인 개발 방법론, CI/CD 파이프라인 설계에 대해 안내해 드립니다.
             <br />
-            Data : 데이터 엔지니어링, 데이터 사이언티스트 직무의 역할과 로드맵을 알려드립니다.
+            Data : 유통 MD 및 비즈니스 분석가로 일하다 데이터 직군으로 전향한 스토리와 데엔, 데싸 직무의 역할 및 로드맵을 알려드립니다.
             <br />
             Algorithm : Problem Solving에 사용되는 알고리즘과 자료구조를 안내해 드립니다.
           </Description>
@@ -69,6 +69,32 @@ function App() {
             극장업 C사 소프트웨어 엔지니어
             <br />
             플랫폼 D사 소프트웨어 엔지니어
+          </Description>
+
+          <br />
+
+          <Description>
+            Mobile(iOS)/Algorithm <b>Logan</b>
+            <br />
+            플랫폼 K사 iOS 리드
+          </Description>
+
+          <br />
+
+          <Description>
+            Data <b>Summer</b>
+            <br />
+            유통업 G사 데이터 아키텍트
+            <br />
+            핀테크 F사 데이터 엔지니어
+          </Description>
+
+          <br />
+
+          <Description>
+            Backend <b>Tony</b>
+            <br />
+            AI/ML L사 백엔드 개발자
           </Description>
         </Section>
       </RightContainer>
