@@ -108,6 +108,14 @@ function getRightContainer() {
           <br />
           AI/ML L사 백엔드 개발자
         </Description>
+
+        <br />
+
+        <Description>
+          Mobile(iOS) <b>Able</b>
+          <br />
+          카셰어링 S사 iOS 개발자
+        </Description>
       </Section>
     </RightContainer>
   )
