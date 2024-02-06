@@ -3,7 +3,7 @@ import styled from '@emotion/styled'
 import Grid from '@mui/material/Grid'
 import { ProfileCard } from './profile-card'
 
-const profileDataList = [
+export const profileDataList = [
   {
     id: 'HelloMinchan',
     image:
@@ -75,9 +75,9 @@ const profileDataList = [
     image:
       'https://media.licdn.com/dms/image/D5603AQF-Vn4on1k6VA/profile-displayphoto-shrink_200_200/0/1689130079313?e=1712793600&v=beta&t=YvYPXxjNHWswJQjOIgEyW7LTaYf-cz8U1C0_pzlm_vY',
     name: 'Lani',
-    field: 'Backend',
+    field: 'Fullstack',
     company1: '인테리어 O사',
-    job1: '소프트웨어 엔지니어',
+    job1: '풀스택 개발자',
     company2: '',
     job2: '',
   },

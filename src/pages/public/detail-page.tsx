@@ -2,12 +2,14 @@ import { useToastClear } from '@hooks'
 
 import styled from '@emotion/styled'
 import TextareaAutosize from 'react-textarea-autosize'
-
-const imageUrl =
-  'https://media.licdn.com/dms/image/D5603AQGVNgciNVRM7Q/profile-displayphoto-shrink_200_200/0/1670180619652?e=1712793600&v=beta&t=NimD6kebYbex1suBZ-QmZfr1oTaXHydj9u0H50gAHsQ'
+import { useParams } from 'react-router-dom'
+import { profileDataList } from './components'
 
 export function DetailPage() {
   useToastClear()
+  const { id } = useParams()
+
+  const profileData = profileDataList.find((profileData) => profileData.id === id)
 
   return (
     <Container>
@@ -15,19 +17,19 @@ export function DetailPage() {
         <PageContent>
           <Header>
             <ProfilePictureWrapper>
-              <ProfileImage src={imageUrl} alt={'profile-image'} />
+              <ProfileImage src={profileData?.image} alt={'profile-image'} />
             </ProfilePictureWrapper>
             <HeaderBody>
               <div style={{ display: 'flex', alignItems: 'flex-end' }}>
-                <div style={{ fontWeight: 'bold', fontSize: '40px' }}>정민찬</div>
-                <div style={{ marginLeft: '10px', fontWeight: 'bold', fontSize: '30px', color: ' var(--gray-color)' }}>Backend</div>
+                <HeaderName>{profileData?.name}</HeaderName>
+                <HeaderField>{profileData?.field}</HeaderField>
               </div>
-              <div style={{ fontSize: '20px' }}>CJ CGV 소프트웨어 엔지니어</div>
+              <HeaderJob>{profileData?.company1 + ' ' + profileData?.job1}</HeaderJob>
             </HeaderBody>
           </Header>
 
           <div style={{ marginTop: '30px', fontWeight: 'bold', fontSize: '20px' }}>자기소개</div>
-          <Description readOnly value={'안녕하세요.\n나는 개발자입니다.'} />
+          <Description readOnly value={'안녕하세요.\n저는 개발자입니다.\n반가워용. ㅎㅎ~'} />
           <Body>---질의응답 테이블---</Body>
         </PageContent>
       </PageContainer>
@@ -55,7 +57,9 @@ const PageContent = styled.div`
 
 const Header = styled.div`
   width: 100%;
+
   display: flex;
+  /* background-color: green; */
 `
 
 const ProfilePictureWrapper = styled.div`
@@ -81,6 +85,34 @@ const HeaderBody = styled.div`
   margin-left: 30px;
   padding-top: 40px;
   /* background-color: blue; */
+
+  @media (max-width: 520px) {
+    margin-left: 13px;
+  }
+`
+const HeaderName = styled.div`
+  font-weight: bold;
+  font-size: 40px;
+
+  @media (max-width: 520px) {
+    font-size: 30px;
+  }
+`
+const HeaderField = styled.div`
+  margin-left: 10px;
+  font-weight: bold;
+  font-size: 30px;
+  color: var(--gray-color);
+
+  @media (max-width: 520px) {
+    font-size: 23px;
+  }
+`
+const HeaderJob = styled.div`
+  font-size: 20px;
+  @media (max-width: 520px) {
+    font-size: 16px;
+  }
 `
 
 const Description = styled(TextareaAutosize)`
