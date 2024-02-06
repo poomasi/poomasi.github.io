@@ -2,6 +2,8 @@ import styled from '@emotion/styled'
 
 import Grid from '@mui/material/Grid'
 import { ProfileCard } from './profile-card'
+import { Badge } from '@components'
+import { useState } from 'react'
 
 export const profileDataList = [
   {
@@ -17,8 +19,7 @@ export const profileDataList = [
   },
   {
     id: 'hyunju-song',
-    image:
-      'https://media.licdn.com/dms/image/D5603AQE1cri5qX0Fqg/profile-displayphoto-shrink_200_200/0/1683796610711?e=1712793600&v=beta&t=AXqpoecJdaA5bkWYkvk5wAq8lSt1aBrzybR7h3LFVyc',
+    image: 'https://avatars.githubusercontent.com/u/57041121?v=4',
     name: 'Summer',
     field: 'Data',
     company1: '유통업 G사',
@@ -41,7 +42,7 @@ export const profileDataList = [
     id: 'socar-abel',
     image:
       'https://media.licdn.com/dms/image/D5603AQHq_KIdOGFnpw/profile-displayphoto-shrink_200_200/0/1699419084572?e=1712793600&v=beta&t=SNtSvv11mw4wCtEG2np63RiuxICL9AOEpfYUOeva0mo',
-    name: 'Able',
+    name: '김상우',
     field: 'iOS',
     company1: '카셰어링 S사',
     job1: 'iOS 개발자',
@@ -50,8 +51,7 @@ export const profileDataList = [
   },
   {
     id: 'ashpurple',
-    image:
-      'https://media.licdn.com/dms/image/C5603AQGxMe50tqXOnw/profile-displayphoto-shrink_200_200/0/1662001990308?e=1712793600&v=beta&t=OmGG9HaLe4HEtCbZ98wOUCUdS5eCUdhGakfpaklDr2Q',
+    image: 'https://avatars.githubusercontent.com/u/75887645?v=4',
     name: '안세훈',
     field: 'Web Frontend',
     company1: '반도체 S사',
@@ -82,6 +82,16 @@ export const profileDataList = [
     job2: '',
   },
   {
+    id: 'bepyan',
+    image: 'https://avatars.githubusercontent.com/u/65283190?v=4',
+    name: 'Edward',
+    field: 'Web Frontend',
+    company1: '메신저 K사',
+    job1: '프론트엔드 개발자',
+    company2: '커머스 W사',
+    job2: '프론트엔드 개발자',
+  },
+  {
     id: 'RokwonK',
     image:
       'https://media.licdn.com/dms/image/D5603AQGnBrHWhHi75Q/profile-displayphoto-shrink_200_200/0/1688264196535?e=1712793600&v=beta&t=57Ym8Ck-R9Y8MYXGSdq69auTak2rlr6dXBGJSoeg1kg',
@@ -95,16 +105,38 @@ export const profileDataList = [
 ]
 
 export function PeopleSection() {
+  const [selectedField, setSelectedField] = useState('전체')
+
+  const handleClickBadge = (word: string) => {
+    setSelectedField(word)
+  }
+
   return (
     <Container>
       <Seperator />
       <SubHead>품앗이꾼</SubHead>
 
+      <BadgeContainer>
+        <Badge onClick={() => handleClickBadge('전체')} word={'전체'} />
+        <Badge onClick={() => handleClickBadge('Web Frontend')} word={'Web Frontend'} />
+        <Badge onClick={() => handleClickBadge('Backend')} word={'Backend'} />
+        <Badge onClick={() => handleClickBadge('Fullstack')} word={'Fullstack'} />
+        <Badge onClick={() => handleClickBadge('Android')} word={'Android'} />
+        <Badge onClick={() => handleClickBadge('iOS')} word={'iOS'} />
+        <Badge onClick={() => handleClickBadge('Data')} word={'Data'} />
+        <Badge onClick={() => handleClickBadge('AI/ML')} word={'AI/ML'} />
+      </BadgeContainer>
+
       <div style={{ maxHeight: '800px', overflowY: 'auto' }}>
         <PeopleContainer container style={{ margin: '0 auto' }}>
-          {profileDataList.map((profileData) => (
-            <ProfileCard profileData={profileData} />
-          ))}
+          {profileDataList
+            .filter((profileData) => {
+              if (selectedField === '전체') return true
+              else return profileData.field === selectedField
+            })
+            .map((profileData) => (
+              <ProfileCard profileData={profileData} />
+            ))}
         </PeopleContainer>
       </div>
     </Container>
@@ -126,6 +158,11 @@ const SubHead = styled.div`
   font-size: 30px;
   margin-bottom: 13px;
 `
+
+const BadgeContainer = styled(Grid)`
+  width: 100%;
+`
+
 const PeopleContainer = styled(Grid)`
   width: 100%;
   display: flex;

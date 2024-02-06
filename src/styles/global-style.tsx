@@ -3,6 +3,7 @@ import { Global, css } from '@emotion/react'
 const styles = css`
   :root {
     --gray-color: #717171;
+    --light-gray-color: #aaaaaa;
   }
 
   h1 {
