@@ -26,6 +26,6 @@ jobs:
         with:
           source-directory: 'output'
           destination-github-username: poomasiofficial
-          destination-repository-name: poomasi.github.io
+          destination-repository-name: poomasi-web
           commit-message: ${{ github.event.commits[0].message }}
           target-branch: main
