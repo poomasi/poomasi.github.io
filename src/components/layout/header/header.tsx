@@ -18,8 +18,14 @@ export function Header({ children }: HeaderProps) {
           <div onClick={toHome} style={{ fontSize: '40px', cursor: 'pointer' }}>
             ㉬
           </div>
+
+          <StyledButton>
+            <KakaoIcon src="/assets/kakao-login-icon.png" alt="카카오 로그인 아이콘" />
+            카카오 로그인
+          </StyledButton>
         </HeaderContent>
       </HeaderContainer>
+
       {children || <Outlet />}
     </>
   )
@@ -44,4 +50,27 @@ const HeaderContent = styled.div`
   align-items: center;
   justify-content: space-between;
   width: 1200px;
+`
+
+const StyledButton = styled.button`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px 20px;
+  background-color: #fee500;
+  color: #000;
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: bold;
+
+  &:hover {
+    background-color: #ffeb3b;
+  }
+`
+const KakaoIcon = styled.img`
+  width: 20px;
+  height: 20px;
+  margin-right: 10px;
 `

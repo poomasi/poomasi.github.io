@@ -15,7 +15,7 @@ export function DescriptionSection() {
         서로 전파하고 멘토링을 진행하고 있습니다.
         <br />각 분야의 품앗이꾼들에게 도움을 받아보세요 :)
         <br />
-        <br /> 👉 이용 방법 : 도움받고 싶은 품앗이꾼 클릭 후 질문 작성
+        <br /> 👉 이용 방법 : 로그인 후 도움받고 싶은 품앗이꾼에게 질문 작성
       </Description>
     </Container>
   )
